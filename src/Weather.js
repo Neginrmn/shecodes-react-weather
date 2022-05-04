@@ -12,6 +12,8 @@ export default function Weather() {
       wind: res.data.wind.speed,
       city: res.data.name,
       humidity: res.data.main.humidity,
+      description: res.data.weather[0].description,
+      date: res.data.main.date,
     })
 setTemperature();
 setReady(true);
@@ -31,8 +33,8 @@ setReady(true);
         </form>  
         <h1>{weatherData.city}</h1>
         <ul>
-          <li>Monday 7:00</li>
-          <li>{weatherData.description}</li>
+          <li>date: {weatherData.date}</li>
+          <li>description: {weatherData.description}</li>
         </ul>
         <div className='row'>
           <div className='col-6'>
@@ -41,8 +43,8 @@ setReady(true);
           <div className='col-6'>
             <ul>
               
-              <li>{weatherData.humidity} %</li>
-              <li>{weatherData.wind} km/h</li>
+              <li>humidity: {weatherData.humidity} %</li>
+              <li>wind: {Math.round(weatherData.wind)} km/h</li>
             </ul>
           </div>
         </div>
