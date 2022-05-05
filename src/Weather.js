@@ -1,8 +1,9 @@
 import React,{useState} from 'react';
 import axios from 'axios';
+import TrueDate from './TrueDate';
 
 
-export default function Weather() { 
+export default function Weather(props) { 
   const [ready,setReady] = useState(false);
   const [weatherData, setWeatherData]= useState({});
   const [temperature, setTemperature]= useState(null);
@@ -13,7 +14,7 @@ export default function Weather() {
       city: res.data.name,
       humidity: res.data.main.humidity,
       description: res.data.weather[0].description,
-      date: res.data.main.date,
+      date: new Date(res.data.dt*1000),
     })
 setTemperature();
 setReady(true);
@@ -33,7 +34,7 @@ setReady(true);
         </form>  
         <h1>{weatherData.city}</h1>
         <ul>
-          <li>date: {weatherData.date}</li>
+          <li><TrueDate date={weatherData.date}/></li>
           <li>description: {weatherData.description}</li>
         </ul>
         <div className='row'>
@@ -51,9 +52,9 @@ setReady(true);
       </div>
     );
   } else {
-    let city = 'Shiraz';
+
     const APIkey = '1362dc5f45de045dab893a3af8adf6e4';
-    const apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIkey}&units=metric`;
+    const apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${props.defaultCity}&appid=${APIkey}&units=metric`;
     axios.get(apiURL).then(handleResponse);
     return 'Please Wait';
   } 
