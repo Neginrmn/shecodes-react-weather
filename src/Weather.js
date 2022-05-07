@@ -10,13 +10,16 @@ export default function Weather(props) {
   const [weatherData, setWeatherData] = useState({});
  
   function handleResponse(res) {
+    
     setWeatherData({
       temperature:res.data.main.temp,
              wind: res.data.wind.speed,
              city: res.data.name,
              humidity: res.data.main.humidity,
+             date: new Date(res.data.dt*1000),
              description: res.data.weather[0].description,
              iconUrl:` http://openweathermap.org/img/wn/${res.data.weather[0].icon}.png`,
+            
     });
 
 setReady(true);
@@ -38,7 +41,7 @@ setReady(true);
          </form>  
          <h1>{weatherData.city}</h1>
    <ul>
-     <li>Friday 10:00</li>
+     <li><TrueDate date={weatherData.date} /></li>
      <li>description: {weatherData.description}</li>
    </ul>
    <div className='row'>
