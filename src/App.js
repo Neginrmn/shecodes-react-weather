@@ -8,7 +8,7 @@ import Weather from './Weather';
 export default function App() {
   return (
     <div className="App">
-      <Weather defaultCity="Tokyo"/>
+      <Weather defaultCity="Paris"/>
       <footer>
   This project is coded by Negin{" "}<a href='https://app.netlify.com/sites/reactweatherapp4shecodes/settings/domain' target='_blank' rel="noreferrer">find it on Github</a>
   </footer>
