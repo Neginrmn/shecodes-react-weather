@@ -3,13 +3,11 @@ import WeatherDetails from './WeatherDetails.js';
 import axios from 'axios';
 import "./Weather.css";
 
-export default function Weather(props) { 
-  
+export default function Weather(props) {  
   const [weatherData, setWeatherData]= useState({ready:false});
   const [city, setCity]= useState(props.defaultCity);
   
-  function handleResponse(res) {
-   
+  function handleResponse(res) {  
     setWeatherData({
       ready: true,
       temperature:res.data.main.temp,
@@ -17,7 +15,7 @@ export default function Weather(props) {
       city: res.data.name,
       humidity: res.data.main.humidity,
       description: res.data.weather[0].description,
-      iconURL:` http://openweathermap.org/img/wn/${res.data.weather[0].icon}.png`,
+      iconURL:res.data.weather[0].icon,
       date: new Date(res.data.dt*1000),  
     });
   }
@@ -56,85 +54,3 @@ export default function Weather(props) {
     return 'Please Wait';
   };
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// export default function Weather(props) {
-//   const [ready,setReady] = useState(false);
-//   const [weatherData, setWeatherData] = useState({});
-//   const [city, setCity]= useState(props.defaultCity);
- 
-//   function handleResponse(res) {
-    
-//     setWeatherData({
-//       temperature:res.data.main.temp,
-//              wind: res.data.wind.speed,
-//              city: res.data.name,
-//              humidity: res.data.main.humidity,
-//              date: new Date(res.data.dt*1000),
-//              description: res.data.weather[0].description,
-//              iconUrl:` http://openweathermap.org/img/wn/${res.data.weather[0].icon}.png`,
-            
-//     });
-
-// setReady(true);
-//   }
-
-//   function search() {
-//     const APIkey = '458a27d0841c1139f24bbf7e6a49edc0';  
-//     const apiURL = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIkey}&units=metric`;
-//    axios.get(apiURL).then(handleResponse);
-//   }
-
-//   function handleSubmit(e) {
-//         e.preventDefault();
-//         search();
-//       }
-
-//       function handleCityChange(e) {
-//             setCity(e.target.value);
-//            }
-
-//   if(weatherData.ready) { 
-//    return(
-// <div className="Weather">    
-//          <form onSubmit={handleSubmit}>
-//          <div className='row'>
-//             <div className='col-9'>
-//            <input type="search" placeholder='Find the weather for...' className='form-control' autoFocus='on' onChange={handleCityChange} />
-//            </div>
-//            <div className='col-3'>
-//           <input type='submit' value='search' className='btn btn-danger' />
-//           </div>
-//           </div>
-         
-//          </form>  
-//          <WeatherDetails data={weatherData} /> 
-//        </div>
-//    );
-//    }else {
-//   search();
-//    return 'Please Wait';
-//    };
-//   }
-  
-     
-
-
-
-
