@@ -1,6 +1,7 @@
  import React from "react";
  import TrueDate from './TrueDate.js';
  import WeatherIcon from './WeatherIcon.js';
+import WeatherTemperature from "./WeatherTemperature.js";
 
 
  export default function WeatherDetails(props) {
@@ -14,8 +15,8 @@
    <div className='row'>
      <div className='col-6'>
        <WeatherIcon code={props.data.icon}  />
-       
-       <span className='temp'>{Math.round(props.data.temperature)}</span><span className='unit'>°C</span> 
+       <WeatherTemperature celsius={props.data.temperature} />
+      
      </div>
      <div className='col-6'>
        <ul>
