@@ -1,6 +1,7 @@
 import React from "react";
 import ReactAnimatedWeather from 'react-animated-weather';
 
+
 export default function WeatherIcon(props) {
  const codeMapping= {
   "01d": "CLEAR_DAY",
@@ -22,12 +23,16 @@ export default function WeatherIcon(props) {
   "50d": "FOG",
   "50n": "FOG"
   };
+  if(typeof(icon) !== "undefined") {
   return(
 <ReactAnimatedWeather
     icon={codeMapping[props.code]}
     color= '#09394c'
     size= {64}
     animate={true}
-/>
-  );
+/>); 
+  } else {
+return "Says the icon is undefined"
+  };
+  
 }
