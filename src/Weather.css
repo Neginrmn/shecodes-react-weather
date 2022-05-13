@@ -28,6 +28,12 @@
   font-size: 18px;
 }
 
+.Weather canvas {
+  margin-right: 10px;
+  margin-top: 5px;
+  display: inline-block;
+  color: #00364b;
+}
 .Weather .temp {
   font-weight: 700;
   line-height: 64px;
@@ -35,6 +41,7 @@
   font-size: 64px;
   color: #00364b;
 }
+
 
 /* .Weather img {
   height: 80px;

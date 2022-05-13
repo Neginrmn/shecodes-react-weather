@@ -14,9 +14,15 @@ import WeatherTemperature from "./WeatherTemperature.js";
    </ul>
    <div className='row'>
      <div className='col-6'>
-       <WeatherIcon code={props.data.icon} size={52} />
-       <WeatherTemperature celsius={props.data.temperature} />
-      
+     <div className="clearfix">
+            <div className="float-left">
+              <WeatherIcon code={props.data.icon} size={60} />
+            </div>
+
+            <div className="float-left">
+              <WeatherTemperature celsius={props.data.temperature} />
+            </div>
+          </div>
      </div>
      <div className='col-6'>
        <ul>

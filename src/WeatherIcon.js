@@ -24,8 +24,6 @@ export default function WeatherIcon(props) {
   "50d": "FOG",
   "50n": "FOG"
   };
-  
-  if(typeof(icon) !== "undefined") {
   return(
 <ReactAnimatedWeather
     icon={codeMapping[props.code]}
@@ -33,9 +31,5 @@ export default function WeatherIcon(props) {
     size= {props.size}
     animate={true}
 />); 
-  }  
 }
 
-// else {
-//   return "Says the icon is undefined"
-//     };
