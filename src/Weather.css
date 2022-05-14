@@ -28,13 +28,12 @@
   font-size: 18px;
 }
 
-.Weather canvas {
+.Weather {
   margin-right: 10px;
   margin-top: 5px;
-  display: inline-block;
   color: #00364b;
 }
-.Weather .temp {
+.Weather .temp{
   font-weight: 700;
   line-height: 64px;
   margin: 0px 5px;
@@ -42,12 +41,14 @@
   color: #00364b;
 }
 
+.WeatherTemperature {
+  margin-left: 64px;
+  margin-top: -50px;
+}
 
-/* .Weather img {
-  height: 80px;
-  margin-top: -25px;
- 
-} */
+a {
+  text-decoration: none;
+}
 
 .Weather .unit{
   color: #347e8f;
